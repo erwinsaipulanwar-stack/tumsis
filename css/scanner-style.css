@@ -1,0 +1,228 @@
+/* ==========================================================================
+   SCANNER INTERACTION HUD STYLING
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Share+Tech+Mono&display=swap');
+
+.scanner-container {
+    max-width: 480px;
+    margin: 64px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.hud-header {
+    text-align: center;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+}
+
+.hud-header h1 {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--text-main);
+    margin: 4px 0 0 0;
+    letter-spacing: 0.5px;
+}
+
+.hud-header h1 span {
+    color: var(--accent);
+    text-shadow: 0 0 10px var(--accent-glow);
+}
+
+#session-counter {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    color: var(--text-gray);
+    margin-top: 8px;
+    letter-spacing: 2px;
+}
+
+/* Kamera Box Wrapper HUD Bracket */
+.camera-wrapper {
+    position: relative;
+    width: 100%;
+    background: #09090b;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+
+#reader {
+    width: 100% !important;
+    border: none !important;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#reader video {
+    object-fit: cover !important;
+    border-radius: 12px;
+}
+
+/* Tombol bawaan html5-qrcode yang ga sengaja ke-render diposisikan rapi */
+#reader button {
+    background-color: var(--bg-light);
+    color: white;
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 700;
+    margin: 10px auto;
+    display: block;
+}
+
+.hud-bracket {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-color: var(--accent);
+    border-style: solid;
+    z-index: 10;
+    pointer-events: none;
+}
+.tl { top: 20px; left: 20px; border-width: 4px 0 0 4px; }
+.tr { top: 20px; right: 20px; border-width: 4px 4px 0 0; }
+.bl { bottom: 20px; left: 20px; border-width: 0 0 4px 4px; }
+.br { bottom: 20px; right: 20px; border-width: 0 4px 4px 0; }
+
+/* Hasil Alert Layar Monitor HUD */
+.result-panel {
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    position: relative;
+    display: none;
+    overflow: hidden;
+}
+
+.result-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--text-gray);
+}
+
+.status-title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 900;
+    margin: 0 0 16px 0;
+    letter-spacing: 0.5px;
+}
+
+.status-desc {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: #e0e0e3;
+    margin: 6px 0;
+    font-weight: 500;
+}
+
+#res-detail {
+    color: var(--text-gray);
+    font-size: 12px;
+    font-family: 'Share Tech Mono', monospace;
+    margin-top: 12px;
+    text-transform: uppercase;
+}
+
+/* Tema Warna State */
+.state-success {
+    background: rgba(0, 255, 102, 0.02) !important;
+    border-color: rgba(0, 255, 102, 0.3) !important;
+    box-shadow: 0 0 30px rgba(0, 255, 102, 0.05);
+}
+.state-success::before { background: #00ff66 !important; }
+.state-success .status-title { color: #00ff66; text-shadow: 0 0 15px rgba(0, 255, 102, 0.3); }
+
+.state-bocor {
+    background: rgba(230, 0, 0, 0.02) !important;
+    border-color: rgba(230, 0, 0, 0.3) !important;
+    box-shadow: 0 0 30px rgba(230, 0, 0, 0.08);
+}
+.state-bocor::before { background: var(--accent) !important; }
+.state-bocor .status-title { color: var(--accent); text-shadow: 0 0 15px rgba(230, 0, 0, 0.3); }
+
+/* Tombol Scan Berikutnya */
+.btn-next-scan {
+    width: 100%;
+    background-color: var(--text-main);
+    color: #000000;
+    border: none;
+    border-radius: 10px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 900;
+    padding: 16px 0;
+    margin-top: 24px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+}
+
+.btn-next-scan:hover {
+    background-color: var(--accent);
+    color: #ffffff;
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+/* ==========================================================================
+   FITUR BARU: UPLOAD FILE IMAGE CONFIG
+   ========================================================================== */
+.upload-wrapper {
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.btn-upload-file {
+    display: block;
+    width: 100%;
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 16px 0;
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+}
+
+.btn-upload-file:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background-color: rgba(230, 0, 0, 0.02);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+/* Menjinakkan logo SVG di navbar */
+.logo .logo-img {
+    height: 65px;          /* Atur tinggi logo sesuai selera lu */
+    width: auto;           /* Biar proporsi lebar otomatis menyesuaikan */
+    filter: none !important; /* WAJIB: Biar logo lu berwarna asli, ga kena grayscale global */
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Penyesuaian flex layout pada container logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

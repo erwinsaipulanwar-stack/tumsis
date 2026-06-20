@@ -1,0 +1,816 @@
+/* ==========================================================================
+   OFFLINE FONTS SETUP (Biar Font Tetap Load Pas Offline)
+   ========================================================================== */
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('../assets/fonts/SpaceGrotesk-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('../assets/fonts/SpaceGrotesk-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('../assets/fonts/Oswald-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* ==========================================================================
+   VARIABLES & BASE
+   ========================================================================== */
+:root {
+    --bg-pitch: #060606;
+    --bg-dark: #0d0d0d;
+    --bg-light: #161616;
+    
+    /* PUSAT WARNA MERAH TUMBUK SISWA */
+    --accent: #CD0100; 
+    --accent-hover: #a00100; 
+    
+    --text-main: #ffffff;
+    --text-gray: #999999;
+    --font-sans: 'Space Grotesk', sans-serif;
+    --font-display: 'Oswald', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-pitch);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(125%);
+    transition: transform 0.5s ease, filter 0.3s ease;
+}
+
+.max-width {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ==========================================================================
+   LIVE TICKER
+   ========================================================================== */
+.ticker-wrapper {
+    background-color: var(--accent);
+    color: var(--text-main);
+    padding: 8px 0;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.ticker-text {
+    display: inline-block;
+    animation: marquee 25s linear infinite;
+}
+
+@keyframes marquee {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+}
+
+/* ==========================================================================
+   NAVBAR & LOGO SETUP
+   ========================================================================== */
+.navbar {
+    border-bottom: 1px solid var(--bg-light);
+    background-color: rgba(6, 6, 6, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 64px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.logo .logo-img {
+    height: 65px;          
+    width: auto;           
+    filter: none !important; 
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links a {
+    color: var(--text-gray);
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--text-main);
+}
+
+.menu-toggle {
+    display: none; 
+    background: none;
+    border: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    align-items: flex-end;
+    margin-left: auto;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 2px;
+    background-color: var(--text-main);
+}
+
+.menu-toggle span:nth-child(1) { width: 32px; }
+.menu-toggle span:nth-child(2) { width: 24px; }
+
+/* ==========================================================================
+   HERO SECTION (PERFECT ALIGNMENT)
+   ========================================================================== */
+.hero {
+    width: 100%;
+    padding: 100px 0 80px 0; 
+    overflow: hidden;
+}
+
+.hero-container {
+    display: flex; 
+    justify-content: space-between;
+    align-items: flex-start; /* Teks kiri dan gambar kanan lurus Rata Atas */
+    width: 100%;
+    gap: 48px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 500px;
+    padding-top: 15px; /* Memberikan porsi napas estetik agar sejajar mata */
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: 80px;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.9;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+}
+
+.hero-title span {
+    color: var(--accent);
+}
+
+.hero-description {
+    color: var(--text-gray);
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 420px;
+    margin-bottom: 32px;
+}
+
+.hero-cta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.play-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--bg-light);
+    border: 1px solid rgba(255, 0, 60, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    cursor: pointer;
+    animation: pulse 2s infinite;
+}
+
+.play-btn svg {
+    width: 20px;
+    height: 20px;
+    margin-left: 3px;
+}
+
+.cta-text {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cta-title {
+    display: block;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.cta-subtitle {
+    color: var(--text-gray);
+}
+
+.hero-graphic {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* Memastikan elemen terdorong pas ke sudut kanan */
+}
+
+.graphic-box {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 4 / 5;
+    border-radius: 40px;
+    overflow: hidden;
+    border: 1px solid var(--bg-light);
+    background-color: var(--bg-dark);
+}
+
+.graphic-box:hover img {
+    transform: scale(1.05);
+}
+
+.overlay-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--bg-pitch), transparent);
+}
+
+.hero-graphic .graphic-box .deco-logo-wrapper {
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    width: 75px; 
+    z-index: 10;
+    animation: neonBreathing 3s ease-in-out infinite alternate;
+}
+
+.deco-logo {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: none !important; 
+}
+
+@keyframes neonBreathing {
+    0% {
+        filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6)) !important;
+        transform: scale(1);
+    }
+    100% {
+        filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.5)) !important;
+        transform: scale(1.03);
+    }
+}
+
+/* ==========================================================================
+   VIDEO GRID & CAPTION (JENDELA CINEMATIC KONSISTEN)
+   ========================================================================== */
+.video-grid-section {
+    margin-top: -24px;   
+    margin-bottom: 96px; 
+}
+
+.video-caption {
+    margin-bottom: 40px; /* Jarak aman dari teks headline menuju ke baris video */
+    text-align: center;
+    padding: 0 24px;
+}
+
+.video-caption h2 {
+    font-family: var(--font-display);
+    font-size: 36px;     
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffffff;
+    margin-bottom: 16px;
+}
+
+.video-caption h2 span {
+    color: var(--accent);
+}
+
+.video-caption p {
+    font-size: 15px;
+    color: var(--text-gray);
+    max-width: 680px;    
+    margin: 0 auto;      
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 24px;   
+    width: 100%; 
+}
+
+.video-card {
+    height: 250px; 
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: var(--bg-dark);
+    border: 1px solid var(--bg-light);
+}
+
+.video-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    filter: grayscale(100%) contrast(125%);
+    transition: transform 0.5s ease, filter 0.3s ease;
+}
+
+.video-card:hover video {
+    filter: grayscale(0%) contrast(100%);
+    transform: scale(1.05); 
+}
+
+/* ==========================================================================
+   UNIQUE APPROACH
+   ========================================================================== */
+.approach {
+    margin-bottom: 128px;
+}
+
+.approach-container {
+    background: linear-gradient(135deg, var(--bg-dark), var(--bg-pitch));
+    border: 1px solid var(--bg-light);
+    border-radius: 48px;
+    padding: 64px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 48px;
+    align-items: center;
+}
+
+.approach-content {
+    grid-column: span 5;
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 24px;
+}
+
+.section-title span {
+    color: var(--accent);
+}
+
+.approach-content p {
+    color: var(--text-gray);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.approach-graphic {
+    grid-column: span 7;
+    height: 320px;
+    border-radius: 32px;
+    overflow: hidden;
+    border: 1px solid var(--bg-light);
+    position: relative;
+}
+
+.overlay-gradient-left {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(6, 6, 6, 0.8), transparent);
+}
+
+/* ==========================================================================
+   CATEGORIES / ARENA TIER LEVEL (CLEAN & DYNAMIC ZOOM FULL COLOR)
+   ========================================================================== */
+.categories {
+    margin-bottom: 128px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 48px;
+}
+
+.sub-tag {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.section-title-alt {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.category-card,
+.category-card.featured {
+    background-color: var(--bg-dark);
+    padding: 24px;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    border-radius: 32px;
+    overflow: hidden; 
+    
+    /* PENTING: Bersihkan paksa semua outline kaku bawaan lama */
+    border: none !important; 
+    outline: none !important;
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+/* Matikan paksa selector border bawaan lama */
+.category-card:hover:not(.featured) {
+    border: none !important;
+    border-color: transparent !important;
+}
+
+/* Efek saat CARD disorot mouse */
+.category-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(205, 1, 0, 0.25); 
+}
+
+.card-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0.15; 
+    transition: opacity 0.4s ease;
+}
+
+/* 1. Tambahkan ini biar pas di-hover gambarnya jadi lebih terang/jelas */
+.category-card:hover .card-bg {
+    opacity: 0.75; /* Dari 0.15 dinaikin ke 0.75 biar warna aslinya keluar dari kegelapan */
+}
+
+/* 2. Ini selector yang kemarin, biarkan tetap seperti ini */
+.category-card:hover .card-bg img {
+    transform: scale(1.12) !important; 
+    filter: none !important; 
+}
+
+.category-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--bg-pitch) 30%, transparent);
+    z-index: 2;
+}
+
+.card-badge, .card-badge-outline {
+    position: relative;
+    z-index: 3;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    align-self: flex-start;
+}
+
+.card-badge {
+    background-color: var(--accent);
+    color: var(--text-main);
+}
+
+.card-badge-outline {
+    border: 1px solid var(--bg-light);
+    color: var(--text-gray);
+    /* Tambah transisi biar perubahan warna merahnya alus/smooth */
+    transition: border-color 0.4s ease, color 0.4s ease; 
+}
+/* KUNCI BARU: Pas CARD di-hover, tulisan KG & border-nya otomatis menyala merah */
+/* KUNCI BARU: Pas CARD di-hover, badge KG langsung nge-block merah solid */
+.category-card:hover .card-badge-outline {
+    background-color: var(--accent) !important; /* Mengisi background jadi merah solid */
+    border-color: var(--accent) !important;     /* Garis pinggir ikut jadi merah */
+    color: var(--text-main) !important;         /* Teks otomatis berubah jadi putih biar kebaca */
+}
+.card-info {
+    position: relative;
+    z-index: 3;
+}
+
+.card-info h3 {
+    font-family: var(--font-display);
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.card-info p {
+    font-size: 12px;
+    color: var(--text-gray);
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   INSTRUCTORS
+   ========================================================================== */
+.instructors {
+    margin-bottom: 128px;
+}
+
+.instructors-box {
+    background-color: var(--bg-dark);
+    border: 1px solid var(--bg-light);
+    border-radius: 48px;
+    padding: 64px;
+}
+
+.center-header {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto 48px auto;
+}
+
+.center-header p {
+    color: var(--text-gray);
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+.instructors-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+}
+
+.profile-card {
+    text-align: center;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 16px auto;
+    border: 1px solid var(--bg-light);
+    transition: border-color 0.3s;
+}
+
+.profile-card:hover .avatar {
+    border-color: var(--accent);
+}
+
+.profile-card:hover img {
+    filter: grayscale(0%) contrast(100%);
+}
+
+.profile-card h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.profile-card p {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-gray);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer {
+    border-top: 1px solid var(--bg-light);
+    background-color: var(--bg-pitch);
+    padding: 64px 0 48px 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    margin-bottom: 48px;
+}
+
+.footer-info {
+    grid-column: span 2;
+}
+
+.footer-info .logo {
+    display: inline-block;
+    margin-bottom: 16px;
+}
+
+.footer-info p {
+    font-size: 12px;
+    color: var(--text-gray);
+    max-width: 320px;
+    line-height: 1.6;
+}
+
+.footer-links h5 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    font-size: 12px;
+    color: var(--text-gray);
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--text-main);
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--bg-light);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN & MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .hero { width: 100%; padding: 60px 0; }
+    .hero-container { flex-direction: column; align-items: center; gap: 40px; }
+    .hero-content { max-width: 100%; text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .hero-description { max-width: 500px; }
+    .hero-graphic { justify-content: center; width: 100%; }
+    .approach-container { grid-template-columns: 1fr; }
+    .approach-content, .approach-graphic { grid-column: span 12; }
+    .categories-grid { grid-template-columns: repeat(2, 1fr); }
+    .instructors-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-info { grid-column: span 2; }
+}
+
+@media (max-width: 768px) {
+    .nav-container { 
+        gap: 24px; 
+        position: relative; 
+    }
+    
+    .nav-links { 
+        display: none; 
+        flex-direction: column;
+        position: absolute;
+        top: 80px; 
+        left: 0;
+        width: 100%;
+        background-color: rgba(13, 13, 13, 0.95); 
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--bg-light);
+        padding: 32px 24px;
+        gap: 24px;
+        z-index: 99;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .menu-toggle span {
+        transition: transform 0.3s ease, width 0.3s ease;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(4px) rotate(45deg);
+        width: 28px;
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        transform: translateY(-4px) rotate(-45deg);
+        width: 28px;
+    }
+
+    .hero-title { font-size: 56px; }
+    
+    /* Responsif Grid Video di HP */
+    .video-grid {
+        grid-template-columns: 1fr; 
+        gap: 16px;
+    }
+    .video-card {
+        height: 160px; 
+    }
+    .video-caption {
+        margin-top: 28px;
+    }
+    .video-caption h2 {
+        font-size: 24px;
+    }
+    .video-caption p {
+        font-size: 13px;
+    }
+
+    .categories-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-info { grid-column: span 1; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 0, 60, 0.4); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 0, 60, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 0, 60, 0); }
+}

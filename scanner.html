@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gate Entry Scanner - Tumbuk Siswa</title>
+    <link rel="stylesheet" href="css/admin-style.css">
+    <link rel="stylesheet" href="css/scanner-style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="admin.html" class="logo">TUMBUK<span>SISWA.</span> <small class="admin-badge">GATE CORE</small></a>
+            <div class="nav-links">
+                <a href="admin.html">← Dashboard</a>
+                <a href="scanner.html" class="active">Scanner QR</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="scanner-container">
+        <header class="hud-header">
+            <span class="sub-tag">// LIVE GATE VALIDATION</span>
+            <h1>GATE<span>SCANNER</span></h1>
+            <p id="session-counter">SESSION VERIFIED: 0 TIKET</p>
+        </header>
+
+        <div class="camera-wrapper" id="camera-box-interface">
+            <div class="hud-bracket tl"></div>
+            <div class="hud-bracket tr"></div>
+            <div class="hud-bracket bl"></div>
+            <div class="hud-bracket br"></div>
+            <div id="reader"></div>
+        </div>
+
+        <div class="upload-wrapper" id="upload-box-interface">
+            <label for="qr-input-file" class="btn-upload-file">
+                📁 // UPLOAD IMAGE / SCREENSHOT FROM GALLERY
+            </label>
+            <input type="file" id="qr-input-file" accept="image/*" style="display: none;">
+        </div>
+
+        <div class="result-panel" id="monitor-result">
+            <div class="status-title" id="res-title">READY TO SCAN</div>
+            <div class="status-desc" id="res-name">NAMA: -</div>
+            <div class="status-desc" id="res-detail">LOG: -</div>
+            <button class="btn-next-scan" id="btn-reset-scan">// SCAN NEXT PASS</button>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="js/scanner.js"></script>
+</body>
+</html>
