@@ -34,10 +34,6 @@ async function uploadImage(file) {
  * ==========================================================================
  */
 
-// ⚠️ PASTE URL WEB APP GOOGLE APPS SCRIPT YANG SUDAH DI-DEPLOY DI SINI ⚠️
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzSHFpF2lG20vElXU11zeUMmSWZ5YN5yDKln4QPPQB-Ydxd76qJQOmn31SyypSBSouaEw/exec";
-const PASSWORD_RAHASIA = "admintumbuk2026";
-
 // Live Scanner HUD Variables
 let html5QrcodeScanner = null;
 let isScanningActive = false;
