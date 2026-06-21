@@ -1,3 +1,31 @@
+const supabaseUrl = 'ISI_PROJECT_URL';
+const supabaseKey = 'ISI_ANON_KEY';
+
+const supabase = window.supabase.createClient(
+  supabaseUrl,
+  supabaseKey
+);
+async function uploadImage(file) {
+
+    const fileName = `fighter-${Date.now()}`;
+
+    const { data, error } = await supabase
+        .storage
+        .from('fighters')
+        .upload(fileName, file);
+
+    if (error) {
+        console.error(error);
+        return null;
+    }
+
+    const { data: publicUrl } = supabase
+        .storage
+        .from('fighters')
+        .getPublicUrl(fileName);
+
+    return publicUrl.publicUrl;
+}
 /**
  * ==========================================================================
  * TUMBUK SISWA — FULL UNLOCKED ENGINE (CONNECTED TO GOOGLE APPS SCRIPT)
@@ -604,6 +632,13 @@ function initFormHandlers() {
                     return;
                 }
             }
+            const fileInput = document.getElementById('fighterAvatarFile');
+
+let imageUrl = "";
+
+if (fileInput.files.length > 0) {
+    imageUrl = await uploadImage(fileInput.files[0]);
+}
 
             const params = {
                 nama: document.getElementById('fighterName').value,
@@ -615,7 +650,7 @@ function initFormHandlers() {
                 height: parseInt(document.getElementById('fighterWeight').value) || 170,
                 stance: "Orthodox",
                 gym: document.getElementById('fighterSchool').value,
-                photo: photoUrl
+                photo: imageUrl
             };
 
             if (isEdit) {
