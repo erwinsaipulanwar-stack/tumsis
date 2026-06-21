@@ -1,5 +1,5 @@
-const supabaseUrl = 'ISI_PROJECT_URL';
-const supabaseKey = 'ISI_ANON_KEY';
+const supabaseUrl = 'https://wpgcbpwzaormdsdywzfd.supabase.co/rest/v1/';
+const supabaseKey = 'sb_publishable_Gl-90SkoiuGXzNp0QFVNoA_qWDxEu9z';
 
 const supabase = window.supabase.createClient(
   supabaseUrl,
